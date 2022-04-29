@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 
-router.get("/",(req,res)=>{
+router.get("/api/notes",(req,res)=>{
     fs.readFile("./db/db.json","utf-8",(err,data)=>{
         if(err){
             throw err
@@ -14,7 +14,7 @@ router.get("/",(req,res)=>{
     })
 })
 
-router.post("/",(req,res)=>{
+router.post("/api/notes",(req,res)=>{
     fs.readFile("./db/db.json","utf-8",(err,data)=>{
         if(err){
             throw err
@@ -28,7 +28,7 @@ router.post("/",(req,res)=>{
                     throw err
                 }
                 else {
-                    res.json(notes)
+                    res.json(books)
                 }
             })
         }
